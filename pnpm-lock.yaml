@@ -8660,3 +8660,15 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  file:src/packages/solid:
+    resolution: {directory: src/packages/solid, type: directory}
+    name: '@lightningjs/solid-ui'
+    dependencies:
+      '@lightningjs/renderer': 0.3.6
+      '@lightningjs/solid': 0.6.10(solid-js@1.8.1)
+      '@lightningjs/solid-primitives': 0.3.6(@lightningjs/solid@0.6.10)(solid-js@1.8.1)
+      '@lightningjs/ui-components-theme-base': 1.0.3
+      '@solidjs/router': 0.8.3(solid-js@1.8.1)
+      solid-js: 1.8.1
+    dev: false

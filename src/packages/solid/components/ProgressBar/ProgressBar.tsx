@@ -40,12 +40,11 @@ type ProgressBarProps = {
   width: number;
 };
 
-const ProgressBar: Component<ProgressBarProps> = (props: ProgressBarProps) => {
+const ProgressBar: Component<ProgressBarProps> = (props) => {
   return (
     <View style={styles.container} {...props}>
       <View
         style={styles.progressBar}
-        // @ts-expect-error remove when animate is added to View
         animate
         animationSettings={props.animationSettings}
         width={props.width * props.progress}
