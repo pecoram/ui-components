@@ -19,7 +19,7 @@ import type { Component } from 'solid-js';
 import { View } from '@lightningjs/solid';
 import styles from './Icon.styles';
 
-type IconProps = {
+export type IconProps = {
   /**
    * icon color (can only be applied on png icons)
    */
@@ -27,6 +27,8 @@ type IconProps = {
   /* 
    * when `true`, icon width and height will not dynamically resize to the final texture's `finalW` and `finalH` properties
   fixed?: boolean; */
+
+  width: number;
 
   /**
    * path to image or inline SVG XML
@@ -43,7 +45,7 @@ const Icon: Component<IconProps> = (props: IconProps) => {
       y={10}
       x={10}
       style={styles.container}
-    ></View>
+    />
   );
 };
 

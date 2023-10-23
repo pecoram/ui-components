@@ -18,7 +18,7 @@
 import { View, Text } from '@lightningjs/solid';
 import { ProgressBar } from '@lightningjs/solid-ui';
 import { Column, useFocusManager } from '@lightningjs/solid-primitives';
-import { Button, buttonStyles } from '@lightningjs/solid-ui';
+import { Button } from '@lightningjs/solid-ui';
 
 const fixStyles = {
   fontSize: 20,
@@ -37,29 +37,26 @@ const App = () => {
   return (
     <View ref={window.APP} style={{ width: 1920, height: 1080 }}>
       <View color="#071423" />
-      <ProgressBar x={200} y={400} width={500} progress={0.6} zIndex={1} />
       <Column>
-        <Button autofocus x={200} y={200} height={100} width={500}>
-          <Text style={{ ...buttonStyles.Text, textAlign: 'center' }}>Button!</Text>
-        </Button>
         <Button
-          // autofocus
+          autofocus
           x={200}
           y={400}
           height={100}
           width={800}
-          prefix={
-            <Text width={10} style={fixStyles}>
-              #
-            </Text>
-          }
-          title="A Different Button Button Button!"
-          suffix={
-            <Text width={10} style={fixStyles}>
-              @
-            </Text>
-          }
-        />
+          // prefix={
+          //   <Text width={10} style={fixStyles}>
+          //     #
+          //   </Text>
+          // }
+          // suffix={
+          //   <Text width={10} style={fixStyles}>
+          //     @
+          //   </Text>
+          // }
+        >
+          A Button!
+        </Button>
       </Column>
     </View>
   );
