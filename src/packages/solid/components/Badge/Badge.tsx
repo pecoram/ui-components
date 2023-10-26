@@ -15,15 +15,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import type { Component } from 'solid-js';
-import { Text, Show } from '@lightningjs/solid';
-import { withPadding } from '@lightningjs/solid-primitives';
+import { Text, Show, View, hexColor } from '@lightningjs/solid';
 import Icon, { type IconProps } from '../Icon/Icon';
 import styles from './Badge.styles';
-
-withPadding; // Preserve the import.
-
-// props in LUI: title, icon, iconAlign, iconWidth, iconHeight
-// NOTE: Badge can have an icon on left or right or no Icon
 
 type BadgeProps = {
   /**
@@ -49,52 +43,26 @@ type BadgeProps = {
 };
 
 const Badge: Component<BadgeProps> = (props: BadgeProps) => {
-  // not implemented, thinking about which option would be best
-  const iconAlignStyles = (props) => {
-    if (props.iconAlign) {
-      if (props.iconAlign === 'left') {
-        return {
-          // return styles to align icon on left of text
-        };
-      } else {
-        // return styles to align icon on the right of text
-      }
-    }
-  };
-
-  // NOTE: directive needs to be before props
   return (
-    <node
-      use:withPadding={styles.padding}
-      {...props}
-      color={styles.color}
-      borderRadius={styles.borderRadius}
-      border={styles.border}
-      width={styles.width}
-      height={styles.height}
-    >
+    <View {...props} {...styles.container}>
       <Show when={props.iconAlign === 'left'}>
         <Icon
-          x={styles.paddingX}
-          color={props.icon.color}
+          color={hexColor(props.icon.color)}
           icon={props.icon.icon}
           width={props.iconWidth}
           height={props.iconHeight}
         />
       </Show>
-      <Text x={props.iconWidth + 10} y={styles.paddingY} style={styles.textStyle}>
-        {props.title}
-      </Text>
+      <Text style={styles.textStyle}>{props.title}</Text>
       <Show when={props.iconAlign === 'right'}>
         <Icon
-          x={styles.textStyle.width + 10}
-          color={props.icon.color}
+          color={hexColor(props.icon.color)}
           icon={props.icon.icon}
           width={props.iconWidth}
           height={props.iconHeight}
         />
       </Show>
-    </node>
+    </View>
   );
 };
 

@@ -48,7 +48,7 @@ export default meta;
 export const Basic = {
   args: {
     title: 'Badge Text',
-    width: 300,
+    width: 200,
     iconAlign: 'left',
     iconWidth: 20,
     iconHeight: 20,
